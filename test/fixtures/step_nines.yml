@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sala: MyString
+  auto: MyString
+  factura: MyString
+  pedido: MyString
+  user_id: MyString
+  completado: MyString
+
+two:
+  sala: MyString
+  auto: MyString
+  factura: MyString
+  pedido: MyString
+  user_id: MyString
+  completado: MyString

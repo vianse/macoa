@@ -1,0 +1,2 @@
+class StepSix < ApplicationRecord
+end

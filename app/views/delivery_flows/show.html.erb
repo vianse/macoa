@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pedido:</strong>
+  <%= @delivery_flow.pedido %>
+</p>
+
+<p>
+  <strong>Nombrecliente:</strong>
+  <%= @delivery_flow.nombreCliente %>
+</p>
+
+<p>
+  <strong>Tipocredito:</strong>
+  <%= @delivery_flow.tipoCredito %>
+</p>
+
+<p>
+  <strong>Fechapromesaentrega:</strong>
+  <%= @delivery_flow.fechaPromesaEntrega %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @delivery_flow.observaciones %>
+</p>
+
+<p>
+  <strong>Accesorios:</strong>
+  <%= @delivery_flow.accesorios %>
+</p>
+
+<p>
+  <strong>Placas:</strong>
+  <%= @delivery_flow.placas %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @delivery_flow.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_delivery_flow_path(@delivery_flow) %> |
+<%= link_to 'Back', delivery_flows_path %>

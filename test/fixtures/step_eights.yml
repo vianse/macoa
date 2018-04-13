@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inicio: MyString
+  fin: MyString
+  pedido: MyString
+  user_id: MyString
+  completado: MyString
+
+two:
+  inicio: MyString
+  fin: MyString
+  pedido: MyString
+  user_id: MyString
+  completado: MyString

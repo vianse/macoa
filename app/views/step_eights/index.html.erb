@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Step Eights</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Inicio</th>
+      <th>Fin</th>
+      <th>Pedido</th>
+      <th>User</th>
+      <th>Completado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @step_eights.each do |step_eight| %>
+      <tr>
+        <td><%= step_eight.inicio %></td>
+        <td><%= step_eight.fin %></td>
+        <td><%= step_eight.pedido %></td>
+        <td><%= step_eight.user_id %></td>
+        <td><%= step_eight.completado %></td>
+        <td><%= link_to 'Show', step_eight %></td>
+        <td><%= link_to 'Edit', edit_step_eight_path(step_eight) %></td>
+        <td><%= link_to 'Destroy', step_eight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Step Eight', new_step_eight_path %>

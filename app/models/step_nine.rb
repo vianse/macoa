@@ -1,0 +1,2 @@
+class StepNine < ApplicationRecord
+end

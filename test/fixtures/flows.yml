@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  current_hash: MyString
+  data: MyString
+  prev_hash: MyString
+  time: MyString
+  index: MyString
+  nonce: MyString
+
+two:
+  current_hash: MyString
+  data: MyString
+  prev_hash: MyString
+  time: MyString
+  index: MyString
+  nonce: MyString

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inicio:</strong>
+  <%= @step_eight.inicio %>
+</p>
+
+<p>
+  <strong>Fin:</strong>
+  <%= @step_eight.fin %>
+</p>
+
+<p>
+  <strong>Pedido:</strong>
+  <%= @step_eight.pedido %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @step_eight.user_id %>
+</p>
+
+<p>
+  <strong>Completado:</strong>
+  <%= @step_eight.completado %>
+</p>
+
+<%= link_to 'Edit', edit_step_eight_path(@step_eight) %> |
+<%= link_to 'Back', step_eights_path %>

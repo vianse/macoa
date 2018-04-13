@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Desembolso:</strong>
+  <%= @step_two.desembolso %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @step_two.fecha %>
+</p>
+
+<p>
+  <strong>Hora:</strong>
+  <%= @step_two.hora %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @step_two.observaciones %>
+</p>
+
+<p>
+  <strong>Pedido:</strong>
+  <%= @step_two.pedido %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @step_two.user_id %>
+</p>
+
+<p>
+  <strong>Completado:</strong>
+  <%= @step_two.completado %>
+</p>
+
+<%= link_to 'Edit', edit_step_two_path(@step_two) %> |
+<%= link_to 'Back', step_twos_path %>

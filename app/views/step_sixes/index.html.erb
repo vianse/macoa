@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Step Sixes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Revisionpagos</th>
+      <th>Observaciones</th>
+      <th>Pedido</th>
+      <th>User</th>
+      <th>Completado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @step_sixes.each do |step_six| %>
+      <tr>
+        <td><%= step_six.revisionPagos %></td>
+        <td><%= step_six.observaciones %></td>
+        <td><%= step_six.pedido %></td>
+        <td><%= step_six.user_id %></td>
+        <td><%= step_six.completado %></td>
+        <td><%= link_to 'Show', step_six %></td>
+        <td><%= link_to 'Edit', edit_step_six_path(step_six) %></td>
+        <td><%= link_to 'Destroy', step_six, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Step Six', new_step_six_path %>

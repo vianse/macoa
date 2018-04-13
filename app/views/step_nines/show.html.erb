@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sala:</strong>
+  <%= @step_nine.sala %>
+</p>
+
+<p>
+  <strong>Auto:</strong>
+  <%= @step_nine.auto %>
+</p>
+
+<p>
+  <strong>Factura:</strong>
+  <%= @step_nine.factura %>
+</p>
+
+<p>
+  <strong>Pedido:</strong>
+  <%= @step_nine.pedido %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @step_nine.user_id %>
+</p>
+
+<p>
+  <strong>Completado:</strong>
+  <%= @step_nine.completado %>
+</p>
+
+<%= link_to 'Edit', edit_step_nine_path(@step_nine) %> |
+<%= link_to 'Back', step_nines_path %>

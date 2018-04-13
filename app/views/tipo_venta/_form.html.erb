@@ -1,0 +1,22 @@
+<%= form_for(tipo_ventum) do |f| %>
+  <% if tipo_ventum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tipo_ventum.errors.count, "error") %> prohibited this tipo_ventum from being saved:</h2>
+
+      <ul>
+      <% tipo_ventum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipoVenta %>
+    <%= f.text_field :tipoVenta %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

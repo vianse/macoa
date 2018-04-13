@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecharevisionprevia:</strong>
+  <%= @step_seven.fechaRevisionPrevia %>
+</p>
+
+<p>
+  <strong>Pedido:</strong>
+  <%= @step_seven.pedido %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @step_seven.user_id %>
+</p>
+
+<p>
+  <strong>Completado:</strong>
+  <%= @step_seven.completado %>
+</p>
+
+<%= link_to 'Edit', edit_step_seven_path(@step_seven) %> |
+<%= link_to 'Back', step_sevens_path %>

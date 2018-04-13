@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Step Fives</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Confirmacion</th>
+      <th>Documentacion</th>
+      <th>Placas</th>
+      <th>Observaciones</th>
+      <th>Gestorconfirmacion</th>
+      <th>Nombregestor</th>
+      <th>Fechaentregagestor</th>
+      <th>Pedido</th>
+      <th>User</th>
+      <th>Completado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @step_fives.each do |step_fife| %>
+      <tr>
+        <td><%= step_fife.confirmacion %></td>
+        <td><%= step_fife.documentacion %></td>
+        <td><%= step_fife.placas %></td>
+        <td><%= step_fife.observaciones %></td>
+        <td><%= step_fife.gestorConfirmacion %></td>
+        <td><%= step_fife.nombreGestor %></td>
+        <td><%= step_fife.fechaEntregaGestor %></td>
+        <td><%= step_fife.pedido %></td>
+        <td><%= step_fife.user_id %></td>
+        <td><%= step_fife.completado %></td>
+        <td><%= link_to 'Show', step_fife %></td>
+        <td><%= link_to 'Edit', edit_step_fife_path(step_fife) %></td>
+        <td><%= link_to 'Destroy', step_fife, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Step Fife', new_step_fife_path %>

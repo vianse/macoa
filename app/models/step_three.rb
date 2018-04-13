@@ -1,0 +1,2 @@
+class StepThree < ApplicationRecord
+end

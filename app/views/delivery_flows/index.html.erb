@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Snoopy I Fast build Admin dashboard for any platform</title>
+	<meta name="description" content="Snoopy is a Dashboard & Admin Site Responsive Template by hencework." />
+	<meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Snoopy Admin, Snoopyadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
+	<meta name="author" content="hencework"/>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+
+</head>
+<style>
+.page-wrapper{
+  margin-left: 0px!important;
+}
+</style>
+
+<body>
+	<!-- Preloader -->
+
+	<!-- /Preloader -->
+
+		<!-- Top Menu Items -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="mobile-only-brand pull-left">
+				<div class="nav-header pull-left">
+					<div class="logo-wrap">
+							<a href="/delivery_flows">
+							<img class="brand-img" src="../img/logo.png" alt="brand"/>
+							<span class="brand-text">Macoa</span>
+						</a>
+					</div>
+				</div>
+				<a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i class="zmdi zmdi-menu"></i></a>
+				<a id="toggle_mobile_search" data-toggle="collapse" data-target="#search_form" class="mobile-only-view" href="javascript:void(0);"><i class="zmdi zmdi-search"></i></a>
+				<a id="toggle_mobile_nav" class="mobile-only-view" href="javascript:void(0);"><i class="zmdi zmdi-more"></i></a>
+
+			</div>
+			<div id="mobile_only_nav" class="mobile-only-nav pull-right">
+				<ul class="nav navbar-right top-nav pull-right">
+					<li class="dropdown auth-drp">
+						<a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="../img/user1.png" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
+						<ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+							<li>
+								<a href="profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+							</li>
+							<li>
+								<a href="#"><i class="zmdi zmdi-card"></i><span>my balance</span></a>
+							</li>
+							<li>
+								<a href="inbox.html"><i class="zmdi zmdi-email"></i><span>Inbox</span></a>
+							</li>
+							<li>
+								<a href="#"><i class="zmdi zmdi-settings"></i><span>Settings</span></a>
+							</li>
+							<li class="divider"></li>
+							<li class="sub-menu show-on-hover">
+								<a href="#" class="dropdown-toggle pr-0 level-2-drp"><i class="zmdi zmdi-check text-success"></i> available</a>
+								<ul class="dropdown-menu open-left-side">
+									<li>
+										<a href="#"><i class="zmdi zmdi-check text-success"></i><span>available</span></a>
+									</li>
+									<li>
+										<a href="#"><i class="zmdi zmdi-circle-o text-warning"></i><span>busy</span></a>
+									</li>
+									<li>
+										<a href="#"><i class="zmdi zmdi-minus-circle-outline text-danger"></i><span>offline</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="#"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<!-- /Top Menu Items -->
+
+		<!-- Left Sidebar Menu -->
+
+		<!-- /Left Sidebar Menu -->
+
+
+
+        <!-- Main Content -->
+		<div class="page-wrapper">
+        <div class="container-fluid pt-30">
+
+
+				<!-- Row -->
+				<div class="row">
+
+          <div class="col-sm-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">Proceso de Entrega</h6>
+								</div>
+                <div class="pull-right">
+                  <%= link_to 'Agregar nuevo pedido', new_delivery_flow_path , :class =>"agregar" %>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+
+									<div class="table-wrap mt-40">
+										<div class="table-responsive">
+                      <table class="table-hover">
+                        <thead>
+                          <tr>
+                            <th>Detalles</th>
+                            <th>Credi-Nissan</th>
+                            <th>Facturación</th>
+                            <th>Accesorios</th>
+                            <th>Placas</th>
+                            <th>CXC</th>
+                            <th>Servicio</th>
+                            <th>Lavado</th>
+                            <th>Sala de entregas</th>
+                            <th>Duración en días</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <% @delivery_flows.each do |delivery_flow| %>
+                            <tr>
+                              <td class="left">
+                                <%= link_to delivery_flow.nombreCliente, edit_delivery_flow_path(delivery_flow) ,:class =>  "name" %>  <br>
+                                Número de Pedido: <%= delivery_flow.pedido %><br>
+                                Tipo de Venta: <%= delivery_flow.tipoCredito %><br>
+                                Fecha de Entrega: <%= delivery_flow.fechaPromesaEntrega %><br>
+                                Número de Vin: <%= delivery_flow.placas %><br>
+                                Accesorios: <%= delivery_flow.accesorios %><br>
+                              </td>
+
+                                <% if StepTwo.where(:pedido => delivery_flow.pedido).first == nil %>
+                                  <td class="red">  <%= link_to 'Pendiente', new_step_two_path(:pedido => delivery_flow.pedido) %>  </td>
+                                 <% else %>
+                                  <td class="green">
+                                    <i class="fas fa-check-circle verde"></i><br>
+                                    Desembolso: <%= StepTwo.where(:pedido => delivery_flow.pedido).pluck(:desembolso).first %><br>
+                                    Fecha y hora: <%= StepTwo.where(:pedido => delivery_flow.pedido).pluck(:fecha).first %><br>
+                                    Observaciones: <%= StepTwo.where(:pedido => delivery_flow.pedido).pluck(:observaciones).first %><br>
+
+                                  </td>
+                                <% end %>
+                                <% if StepThree.where(:pedido => delivery_flow.pedido).first == nil %>
+                                  <td class="red">  <%= link_to 'Pendiente', new_step_three_path(:pedido => delivery_flow.pedido) %>  </td>
+                                 <% else %>
+                                  <td class="green">
+                                    <i class="fas fa-check-circle verde"></i><br>
+                                    Número de factura: <%= StepThree.where(:pedido => delivery_flow.pedido).pluck(:numeroFactura).first %><br>
+                                    Vehiculo: <%= StepThree.where(:pedido => delivery_flow.pedido).pluck(:vehiculo).first %><br>
+                                    Nombre Vendedor: <%= StepThree.where(:pedido => delivery_flow.pedido).pluck(:nombreVendedor).first %><br>
+                                    Nombre del Cliente: <%= StepThree.where(:pedido => delivery_flow.pedido).pluck(:cliente).first %><br>
+                                    Notas de cargo: <%= StepThree.where(:pedido => delivery_flow.pedido).pluck(:notasCargo).first %><br>
+                                    Notas de credito: <%= StepThree.where(:pedido => delivery_flow.pedido).pluck(:notasCredito).first %><br>
+
+                                  </td>
+                                <% end %>
+                                <% if StepFour.where(:pedido => delivery_flow.pedido).first == nil %>
+                                  <td class="red">  <%= link_to 'Pendiente', new_step_four_path(:pedido => delivery_flow.pedido) %>  </td>
+                                 <% else %>
+                                  <td class="green">
+                                    <i class="fas fa-check-circle verde"></i><br>
+                                    Desembolso: <%= StepFour.where(:pedido => delivery_flow.pedido).pluck(:accesorio).first %><br>
+                                    Fecha: <%= StepFour.where(:pedido => delivery_flow.pedido).pluck(:inicio).first %><br>
+                                    Hora: <%= StepFour.where(:pedido => delivery_flow.pedido).pluck(:fin).first %><br>
+
+                                  </td>
+                                <% end %>
+                                <% if StepFive.where(:pedido => delivery_flow.pedido).first == nil %>
+                                  <td class="red">  <%= link_to 'Pendiente', new_step_fife_path(:pedido => delivery_flow.pedido) %>  </td>
+                                 <% else %>
+                                  <td class="green">
+                                    <i class="fas fa-check-circle verde"></i><br>
+                                    Necesita placas?: <%= StepFive.where(:pedido => delivery_flow.pedido).pluck(:confirmacion).first %><br>
+                                    Cumplico con la documentación?: <%= StepFive.where(:pedido => delivery_flow.pedido).pluck(:documentacion).first %><br>
+                                    Observaciones: <%= StepFive.where(:pedido => delivery_flow.pedido).pluck(:observaciones).first %><br>
+                                    Se necesito gestor?: <%= StepFive.where(:pedido => delivery_flow.pedido).pluck(:gestorConfirmacion).first %><br>
+                                    Nombre del gestor: <%= StepFive.where(:pedido => delivery_flow.pedido).pluck(:nombreGestor).first %><br>
+                                    Fecha de entrega: <%= StepFive.where(:pedido => delivery_flow.pedido).pluck(:fechaEntregaGestor).first %><br>
+
+                                  </td>
+                                <% end %>
+                                <% if StepSix.where(:pedido => delivery_flow.pedido).first == nil %>
+                                  <td class="red">  <%= link_to 'Pendiente', new_step_six_path(:pedido => delivery_flow.pedido) %>  </td>
+                                 <% else %>
+                                  <td class="green">
+                                    <i class="fas fa-check-circle verde"></i><br>
+                                    Revision de Pagos: <%= StepSix.where(:pedido => delivery_flow.pedido).pluck(:revisionPagos).first %><br>
+                                    Observaciones: <%= StepSix.where(:pedido => delivery_flow.pedido).pluck(:observaciones).first %><br>
+
+                                  </td>
+                                <% end %>
+                                <% if StepSeven.where(:pedido => delivery_flow.pedido).first == nil %>
+                                  <td class="red">  <%= link_to 'Pendiente', new_step_seven_path(:pedido => delivery_flow.pedido) %>  </td>
+                                 <% else %>
+                                  <td class="green">
+                                    <i class="fas fa-check-circle verde"></i><br>
+                                    Fecha realización de previa: <%= StepSeven.where(:pedido => delivery_flow.pedido).pluck(:fechaRevisionPrevia).first %><br>
+
+                                  </td>
+                                <% end %>
+                                <% if StepEight.where(:pedido => delivery_flow.pedido).first == nil %>
+                                  <td class="red">  <%= link_to 'Pendiente', new_step_eight_path(:pedido => delivery_flow.pedido) %>  </td>
+                                 <% else %>
+                                  <td class="green">
+                                    <i class="fas fa-check-circle verde"></i><br>
+                                    Inicio: <%= StepEight.where(:pedido => delivery_flow.pedido).pluck(:inicio).first %><br>
+                                    Fin: <%= StepEight.where(:pedido => delivery_flow.pedido).pluck(:fin).first %><br>
+
+                                  </td>
+                                <% end %>
+                                <% if StepNine.where(:pedido => delivery_flow.pedido).first == nil %>
+                                  <td class="red">  <%= link_to 'Pendiente', new_step_nine_path(:pedido => delivery_flow.pedido) %>  </td>
+                                 <% else %>
+                                  <td class="green">
+                                    <i class="fas fa-check-circle verde"></i><br>
+                                    Sala: <%= StepNine.where(:pedido => delivery_flow.pedido).pluck(:sala).first %><br>
+                                    Auto: <%= StepNine.where(:pedido => delivery_flow.pedido).pluck(:auto).first %><br>
+                                    Factura: <%= StepNine.where(:pedido => delivery_flow.pedido).pluck(:factura).first %><br>
+                                  </td>
+
+                                <% end %>
+                                <td>
+                                  <div class="duracion">0</div>
+                                </td>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Row -->
+			</div>
+
+			<!-- Footer -->
+			<footer class="footer container-fluid pl-30 pr-30">
+				<div class="row">
+					<div class="col-sm-12">
+						<p>2018 &copy; Macoa. Pampered by Vianse</p>
+					</div>
+				</div>
+			</footer>
+			<!-- /Footer -->
+
+		</div>
+        <!-- /Main Content -->
+    </div>
+    <!-- /#wrapper -->
+
+</body>
+
+</html>

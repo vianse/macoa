@@ -1,0 +1,2 @@
+class StepEight < ApplicationRecord
+end
