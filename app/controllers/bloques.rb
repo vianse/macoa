@@ -1,5 +1,5 @@
 
-require_relative 'block'
+#require_relative 'block'
 
 class Bloques
 
