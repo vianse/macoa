@@ -22,6 +22,16 @@ Rails.application.routes.draw do
       end
     end
   end
+  constraints subdomain: /^(?!macoa)(\w+)/ do
+    resources :projects
+    namespace :api do
+      namespace :v1 do
+        resources :flow, path: "flow"
+        resources :first_block, path: "first_block"
+        resources :add_block, path: "add_block"
+      end
+    end
+  end
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
