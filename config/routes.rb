@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-
+  resources :projects
+  resources :salas
+  resources :tipo_venta
+  resources :step_threes
+  resources :step_fours
+  resources :step_fives
+  resources :step_nines
+  resources :step_eights
+  resources :step_sevens
+  resources :step_sixes
+  resources :step_twos
+  resources :delivery_flows
   root "delivery_flows#index"
   constraints subdomain: /^(?!www)(\w+)/ do
     resources :projects
@@ -12,18 +23,7 @@ Rails.application.routes.draw do
     end
   end
   constraints subdomain: /^(?!macoa)(\w+)/ do
-    resources :projects
-    resources :salas
-    resources :tipo_venta
-    resources :step_threes
-    resources :step_fours
-    resources :step_fives
-    resources :step_nines
-    resources :step_eights
-    resources :step_sevens
-    resources :step_sixes
-    resources :step_twos
-    resources :delivery_flows
+
     namespace :api do
       namespace :v1 do
         resources :flow, path: "flow"
