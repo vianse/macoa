@@ -13,22 +13,23 @@ Rails.application.routes.draw do
   end
   constraints subdomain: /^(?!macoa)(\w+)/ do
     resources :projects
+    resources :salas
+    resources :tipo_venta
+    resources :step_threes
+    resources :step_fours
+    resources :step_fives
+    resources :step_nines
+    resources :step_eights
+    resources :step_sevens
+    resources :step_sixes
+    resources :step_twos
+    resources :delivery_flows
     namespace :api do
       namespace :v1 do
         resources :flow, path: "flow"
         resources :first_block, path: "first_block"
         resources :add_block, path: "add_block"
-        resources :salas
-        resources :tipo_venta
-        resources :step_threes
-        resources :step_fours
-        resources :step_fives
-        resources :step_nines
-        resources :step_eights
-        resources :step_sevens
-        resources :step_sixes
-        resources :step_twos
-        resources :delivery_flows
+
 
       end
     end
